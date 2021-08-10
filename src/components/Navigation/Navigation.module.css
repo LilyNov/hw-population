@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  margin-bottom: 16px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f9fafa;
+}
+
+.navigation {
+    margin-left: auto;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 30px;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.activeLink {
+  composes: link;
+  color: #ff6b08;
+}
+
+.logo {
+    composes: link;
+    font-size: 22px;
+}
