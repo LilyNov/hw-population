@@ -5,7 +5,7 @@
   min-height: 80px;
   margin-bottom: 16px;
   margin-bottom: 30px;
-  border-bottom: 1px solid #f9fafa;
+  border-bottom: 1px solid rgb(22, 21, 21);;
 }
 
 .navigation {
@@ -17,7 +17,7 @@
   text-decoration: none;
   padding: 12px 30px;
   font-weight: 500;
-  color: #ffffff;
+  color: rgb(22, 21, 21);;
   font-size: 18px;
 }
 
