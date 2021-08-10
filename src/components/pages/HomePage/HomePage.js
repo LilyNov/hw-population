@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { fetchForHomePage } from '../../service/population-api'
-import StatisticBar from '../../StatisticBar/StatisticBar'
+import HomeStatisticBar from '../../HomeStatisticBar/HomeStatisticBar'
+import Loader from '../../Loader/Loader'
 
 const HomePage = () => {
-const [statistic, setStatistic] = useState([])
+    const [statistic, setStatistic] = useState([])
     const [error, setError] = useState(null)
     const [status, setStatus] = useState("idle");
 
     useEffect(() => {
         setStatus('pending');
         fetchForHomePage().then(postStatistic => {
-            console.log(postStatistic);
             setStatistic(postStatistic.data)
             setStatus("resolved")
         }).catch(error => {
@@ -21,9 +21,9 @@ const [statistic, setStatistic] = useState([])
 
     return (
         <>
-            {status === "pending" && <p>LOADER</p>}
+            {status === "pending" && <Loader />}
             {status === "rejected" && <p>{error}</p>}
-            {status === "resolved" && <StatisticBar statistic={ statistic}/>}
+            {status === "resolved" && <HomeStatisticBar statistic={ statistic}/>}
         </>
     )
 }

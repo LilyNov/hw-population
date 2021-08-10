@@ -5,7 +5,7 @@ export const fetchForHomePage = () => fetch(`${BASE_URL}=Year&measures=Populatio
       return response.json();
     }
   })
-export const fetchForStateYearPage = (query) => fetch(`${BASE_URL}=State&measures=Population`).then((response) => {
+export const fetchForStateYearPage = () => fetch(`${BASE_URL}=State&measures=Population`).then((response) => {
     if (response.ok) {
       return response.json();
     }

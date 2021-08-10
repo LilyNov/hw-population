@@ -1,18 +1,16 @@
 import PropTypes from "prop-types";
 import {Bar} from 'react-chartjs-2';
 
-const StatisticBar = ({ statistic }) => {
+const HomeStatisticBar = ({ statistic }) => {
     let arrOfYear = []
     let arrOfPopulation = []
-    console.log(statistic);
    
     statistic.map(stat => {
         arrOfYear.push(stat.Year)
         arrOfPopulation.push(stat.Population)
         return {arrOfYear, arrOfPopulation}
     })
-    console.log(arrOfYear);
-    console.log(arrOfPopulation);
+
     return (
         <div>
             <Bar
@@ -55,7 +53,9 @@ const StatisticBar = ({ statistic }) => {
         </div>
     )
 }
-StatisticBar.propTypes = {
+
+HomeStatisticBar.propTypes = {
   statistic: PropTypes.array
 };
-export default StatisticBar
+
+export default HomeStatisticBar

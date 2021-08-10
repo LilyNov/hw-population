@@ -1,0 +1,58 @@
+
+.selectTitle {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: rgb(22, 21, 21);
+}
+
+.selectBox {
+  position: relative;
+
+  appearance: none;
+  font-size: 16px;
+
+  margin-right: 30px;
+  padding: 10px 76px 9px 16px;
+  width: 200px;
+  height: 40px;
+
+  color: rgb(22, 21, 21);
+  background: transparent;
+  border: 1px solid #3d444e;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.selectBoxError {
+  composes: selectBox;
+  border: 1px solid red;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper::after {
+  position: absolute;
+  content: "";
+  top: 65%;
+  left: 175px;
+  transform: translateY(-50%);
+
+  display: block;
+  width: 6px;
+  height: 6px;
+
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top: transparent;
+  border-left: transparent;
+
+  transform: rotate(45deg);
+  pointer-events: none;
+  cursor: pointer;
+}
