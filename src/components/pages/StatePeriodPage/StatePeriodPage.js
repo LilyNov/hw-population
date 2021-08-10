@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchForStateYearPage } from '../../service/population-api'
-import StatePeriodStatisticBar from '../../StatePeriodStatisticBar/StatePeriodStatisticBar'
+import StatisticBar from '../../StatisticBar/StatisticBar'
 import Loader from '../../Loader/Loader'
 import style from '../StatePeriodPage/StatePeriodPage.module.css'
 
@@ -31,7 +31,10 @@ const StatePeriodPage = () => {
 
     // selectQueries
     statistic.map(({State}) => selectStateQueries.includes(State) ? selectStateQueries : selectStateQueries.push(State))
-    statistic.map(({Year}) => selectYearQueries.includes(Year) ? selectYearQueries : selectYearQueries.push(Year))
+    statistic.map(({ Year }) => selectYearQueries.includes(Year) ? selectYearQueries : selectYearQueries.push(Year))
+    const newStatistic = statistic
+        .filter(stat => stat.State === stateOfUSA && stat.Year === stateOfYear)
+        .map(stat => stat.Population)
 
     return (
         <>
@@ -65,7 +68,7 @@ const StatePeriodPage = () => {
                 </div>
                 </form>
             )}
-            {stateOfUSA && stateOfYear && <StatePeriodStatisticBar statistic={statistic} stateOfUSA={stateOfUSA} stateOfYear={ stateOfYear}/>}
+            {stateOfUSA && stateOfYear && <StatisticBar statistic={newStatistic} stateOfUSA={stateOfUSA} stateOfYear={ stateOfYear}/>}
             
         </>
     )

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchForStateYearPage } from '../../service/population-api'
-import StatePageStatisticBar from '../../StatePageStatisticBar/StatePageStatisticBar'
+import StatisticBar from '../../StatisticBar/StatisticBar'
 import Loader from '../../Loader/Loader'
 import style from '../StatePage/StatePage.module.css'
 
@@ -10,6 +10,8 @@ const StatePage = () => {
     const [error, setError] = useState(null)
     const [status, setStatus] = useState("idle");
     let selectStateQueries = [];
+    let arrOfYear = []
+    let arrOfPopulation = []
 
     useEffect(() => {
         setStatus('pending');
@@ -28,6 +30,15 @@ const StatePage = () => {
     };
 
     // selectQueries
+   
+
+    const newStatistic = statistic.filter(stat =>  stat.State ===  stateOfUSA)
+    newStatistic.map(stat => {
+        arrOfYear.push(stat.Year)
+        arrOfPopulation.push(stat.Population)
+        return {arrOfYear, arrOfPopulation}
+    })
+
     statistic.map(({State}) => selectStateQueries.includes(State) ? selectStateQueries : selectStateQueries.push(State))
 
     return (
@@ -50,7 +61,7 @@ const StatePage = () => {
                 </div>
                 </form>
             )}
-            {stateOfUSA &&  <StatePageStatisticBar statistic={statistic} stateOfUSA={ stateOfUSA}/>}
+            {stateOfUSA  && <StatisticBar statistic={arrOfPopulation} stateOfUSA={stateOfUSA} stateOfYear={ arrOfYear} maxY={4500000}/>}
             
         </>
     )
