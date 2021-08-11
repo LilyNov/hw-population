@@ -24,7 +24,7 @@ function App() {
           <StatePeriodPage />
         </Route>
         <Route>
-          <NotFoundPage path="/" />
+          <NotFoundPage />
         </Route>
       </Switch>
     </Container>
