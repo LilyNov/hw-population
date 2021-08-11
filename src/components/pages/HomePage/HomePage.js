@@ -35,14 +35,14 @@ const HomePage = () => {
       {status === 'idle' && ''}
       {status === 'pending' && <Loader />}
       {status === 'rejected' && <p>{error}</p>}
-      {/* {status === 'resolved' && (
+      {status === 'resolved' && (
         <StatisticBar
           statistic={arrOfPopulation}
           stateOfUSA={null}
           stateOfYear={arrOfYear}
           maxY={2000000000}
         />
-      )} */}
+      )}
     </>
   );
 };
