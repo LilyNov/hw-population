@@ -33,8 +33,6 @@ const HomePage = () => {
             {status === "pending" && <Loader />}
             {status === "rejected" && <p>{error}</p>}
             {status === "resolved" && <StatisticBar statistic={arrOfPopulation} stateOfUSA={null} stateOfYear={arrOfYear} maxY={2000000000}/>}
-            
-            
         </>
     )
 }
