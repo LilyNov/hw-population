@@ -12,7 +12,7 @@ function App() {
     <Container>
       <Navigation />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/">
           <HomePage />
         </Route>
 
