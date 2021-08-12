@@ -40,7 +40,6 @@ const HomePage = () => {
           statistic={arrOfPopulation}
           stateOfUSA={null}
           stateOfYear={arrOfYear}
-          maxY={2000000000}
         />
       )}
     </>

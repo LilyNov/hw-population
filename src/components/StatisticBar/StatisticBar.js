@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 
-const StatisticBar = ({ statistic, stateOfUSA, stateOfYear, maxY }) => {
+const StatisticBar = ({ statistic, stateOfUSA, stateOfYear }) => {
+  console.log(stateOfYear.length);
   return (
     <div>
       <Bar
         height={400}
         width={400}
         data={{
-          labels: stateOfYear,
+          labels: stateOfYear.length === 4 ? [stateOfYear] : stateOfYear,
           datasets: [
             {
               label: stateOfUSA || 'Year & Measures',
@@ -28,11 +29,6 @@ const StatisticBar = ({ statistic, stateOfUSA, stateOfYear, maxY }) => {
         }}
         options={{
           maintainAspectRatio: false,
-          scales: {
-            y: {
-              max: maxY,
-            },
-          },
         }}
       />
     </div>
